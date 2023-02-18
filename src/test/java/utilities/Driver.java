@@ -34,7 +34,7 @@ public class Driver {
                     break;
                 default :
                     WebDriverManager.chromedriver().setup();
-                    driver = new SafariDriver();
+                    driver = new ChromeDriver();
             }
 
             driver.manage().window().maximize();
