@@ -13,7 +13,6 @@ import pages.*;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -30,7 +29,7 @@ public class MyStepdefs {
     AdresBilgileri adresBilgileri = new AdresBilgileri();
     KrediKartiBilgileri krediKartiBilgileri = new KrediKartiBilgileri();
     SiparisiTamamla siparisiTamamla = new SiparisiTamamla();
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), (5000));
     Random rnd = new Random();
     Integer random = rnd.nextInt(3) + 1;
     Faker faker = new Faker();
@@ -38,6 +37,7 @@ public class MyStepdefs {
 
     @When("Kullanici url adresine gider.")
     public void kullaniciUrlAdresineGider() {
+
         Driver.getDriver().get(ConfigReader.getProperty("baseUrl"));
     }
 
@@ -72,11 +72,13 @@ public class MyStepdefs {
 
     @And("Giris yapildi basarili console de bilgisi gosterilir.")
     public void girisYapildiBasariliConsoleDeBilgisiGosterilir() {
-        ReusableMethods.waitForClickablility(sepet.sepetim, 10000);
+      ReusableMethods.waitForClickablility(sepet.sepetim, 10000);
         if (sepet.sepetim.isEnabled()) {
             System.out.println("Basarili Bir Sekilde Giris Yaptiniz");
         } else
             System.out.println("Giris Yapilamadi Tekrar Deneyiniz");
+
+
     }
 
 
@@ -272,13 +274,14 @@ public class MyStepdefs {
         ReusableMethods.scrollToElement(Driver.getDriver(), siparisiTamamla.siparisiTamamlaButton);
         siparisiTamamla.siparisiTamamlaButton.click();
         Thread.sleep(5000);
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 30; i++) {
             try {
                 Alert odemeBilgileriHatali = Driver.getDriver().switchTo().alert();
                 System.out.println(odemeBilgileriHatali.getText());
                 odemeBilgileriHatali.accept();
                 break;
             } catch (Exception e) {
+                Thread.sleep(5000);
                 siparisiTamamla.siparisiTamamlaButton.click();
             }
         }
