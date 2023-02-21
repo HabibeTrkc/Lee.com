@@ -1,4 +1,4 @@
-###Lee.com Project
+### Lee.com Project
 
 1- Lee.com.tr Sayfasına git. ( Site açıldığında çıkan bildirimlere ve pop uplara dikkat edilmeli. )  
 2- Mevcut üyeliğe giriş yap.( Giriş yapıldı başarılı console da bilgisi göster. )  
@@ -19,7 +19,7 @@ console üzerinde göster. )
 15- Üyelikten çıkış yap.  
 16- Tarayıcıyı kapat.
 
-####Erişim
+#### Erişim
 Aşağıdaki komutlar çalıştırıldığında yukarıda kapsamı belirtilen test çalışır.  
 `git clone https://github.com/HabibeTrkc/enocaProject.git`  
 `mvn clean`    
