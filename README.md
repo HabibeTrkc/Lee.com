@@ -21,6 +21,6 @@ console üzerinde göster. )
 
 #### Erişim
 Aşağıdaki komutlar çalıştırıldığında yukarıda kapsamı belirtilen test çalışır.  
-`git clone https://github.com/HabibeTrkc/enocaProject.git`  
+`git clone https://github.com/HabibeTrkc/Lee.com.git`  
 `mvn clean`    
 `mvn install`
